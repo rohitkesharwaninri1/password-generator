@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 const PasswordGenerator = () => {
   const [generatedPassword, setGeneratedPassword] = useState("");
   const [passwordHistory, setPasswordHistory] = useState(
-    localStorage.getItem("passwordHistory") || []
+    JSON.parse(localStorage.getItem("passwordHistory")) || []
   );
   const [isPassword, setIsPassword] = useState(false);
   const [number, setNumber] = useState(false);
