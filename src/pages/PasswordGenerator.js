@@ -52,7 +52,6 @@ const PasswordGenerator = () => {
     setPasswordHistory([newPassword, ...passwordHistory.slice(0, 4)]);
     setIsPassword(true);
     localStorage.setItem("passwordHistory", JSON.stringify(passwordHistory));
-    // console.log("Mohit", generatedPassword, "history", passwordHistory);
   };
 
   return (
