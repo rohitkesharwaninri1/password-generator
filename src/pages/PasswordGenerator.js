@@ -1,3 +1,5 @@
+/** @format */
+
 // PasswordGenerator.js
 import React, { useState } from "react";
 import GeneratedPassword from "../components/GeneratedPassword";
@@ -7,7 +9,9 @@ import { toast } from "react-toastify";
 
 const PasswordGenerator = () => {
   const [generatedPassword, setGeneratedPassword] = useState("");
-  const [passwordHistory, setPasswordHistory] = useState([]);
+  const [passwordHistory, setPasswordHistory] = useState(
+    localStorage.getItem("passwordHistory") || []
+  );
   const [isPassword, setIsPassword] = useState(false);
   const [number, setNumber] = useState(false);
   const [chars, setChars] = useState(true);
@@ -53,8 +57,8 @@ const PasswordGenerator = () => {
 
   return (
     <>
-      <div className="flex">
-        <div className="w-9/12 bg-sky-200 h-screen flex flex-col justify-center items-center ">
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full md:w-9/12 bg-sky-200 h-screen flex flex-col  justify-center items-center ">
           <GeneratedPassword password={generatedPassword} />
           <div className="flex">
             <button
@@ -109,7 +113,7 @@ const PasswordGenerator = () => {
           </div>
         </div>
 
-        <div className="w-3/12 bg-sky-50">
+        <div className="w-full md:w-3/12 bg-sky-50">
           <PasswordHistory history={passwordHistory} />
         </div>
       </div>
